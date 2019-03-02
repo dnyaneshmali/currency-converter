@@ -7,7 +7,7 @@ import {AppServices} from './app.services';
   styleUrls: ['./app.component.scss'],
   providers: [AppServices]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   public currModel = new AppModel();
   public resObj: any;
   public currencyList: any;

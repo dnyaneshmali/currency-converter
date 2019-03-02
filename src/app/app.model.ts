@@ -4,5 +4,7 @@ export class AppModel {
   baseCurrName: string;
   targetCurrName: string;
   constructor() {
+    this.targetCurrName = 'CAD';
+    this.baseCurrName = 'USD';
 }
 }
