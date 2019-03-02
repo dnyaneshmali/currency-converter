@@ -8,13 +8,14 @@ import {HttpClient} from '@angular/common/http';
 export class AppServices {
 
   constructor(private http: HttpClient) { }
-  public url = 'http://data.fixer.io/api/latest?access_key=f97cf98a4ef37901aac6e392fdd8a765&base=EUR&symbols=USD,EUR,CAD';
-  /*getCurrData(): Observable<[]> {
-    return this.http.post(this.url);
-  }*/
+  public getFixerCurrData<T>(): Observable<T> {
+  const fixerUrl = 'http://data.fixer.io/api/latest?access_key=f97cf98a4ef37901aac6e392fdd8a765&base=EUR&symbols=USD,EUR,CAD';
+  return this.http.get<T>(fixerUrl);
+  }
 
-  public getCurrData<T>(): Observable<T> {
-    return this.http.get<T>(this.url);
+  public getCurrData<T>(convertFactor): Observable<T> {
+    const url = 'https://free.currencyconverterapi.com/api/v6/convert?q=' + convertFactor + '&compact=ultra&apiKey=cf75f1e861c9426a0704';
+    return this.http.get<T>(url);
   }
 
 }

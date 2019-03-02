@@ -11,19 +11,19 @@ export class AppComponent implements OnInit {
   public currModel = new AppModel();
   public resObj: any;
   public currencyList: any;
+  public convertFactor: any;
   constructor(public appservice: AppServices) {
   }
   ngOnInit() {
     this.currencyList = ['CAD', 'USD', 'EUR'];
   }
   baseCurrChange() {
-    console.log('ready');
-    console.log(this.currModel);
-    this.appservice.getCurrData().subscribe(respData => {
+    this.convertFactor = this.currModel.baseCurrName + '_' + this.currModel.targetCurrName;
+    this.appservice.getCurrData(this.convertFactor).subscribe(respData => {
       if (respData) {
         this.resObj = respData;
-        this.currModel.targetCurr = this.currModel.baseCurr * this.resObj.rates[this.currModel.targetCurrName];
-        console.log(this.resObj);
+        this.currModel.targetCurr = respData[this.convertFactor] * this.currModel.baseCurr;
+       // this.currModel.targetCurr = this.currModel.baseCurr * this.resObj.rates[this.currModel.targetCurrName];
       } else {
         console.log('Currency Not Found');
       }
