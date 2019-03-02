@@ -7,10 +7,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AppServices {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
+
   public getFixerCurrData<T>(): Observable<T> {
-  const fixerUrl = 'http://data.fixer.io/api/latest?access_key=f97cf98a4ef37901aac6e392fdd8a765&base=EUR&symbols=USD,EUR,CAD';
-  return this.http.get<T>(fixerUrl);
+    const fixerUrl = 'http://data.fixer.io/api/latest?access_key=f97cf98a4ef37901aac6e392fdd8a765&base=EUR&symbols=USD,EUR,CAD';
+    return this.http.get<T>(fixerUrl);
   }
 
   public getCurrData<T>(convertFactor): Observable<T> {
