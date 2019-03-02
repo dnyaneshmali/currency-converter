@@ -1,21 +1,47 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <div class="slds-grid slds-gutters">
+  <div class="slds-col slds-size_2-of-3">
+    <div class="slds-grid">
+      <div class="slds-col slds-size_2-of-3">
+        <div class="slds-form-element">
+          <label class="slds-form-element__label" for="form-element-01">Type in amount and select currency:</label>
+          <div class="slds-form-element__control">
+            <input type="text" id="form-element-01" placeholder="0.00" class="slds-input" />
+          </div>
+        </div>
+      </div>
+      <div class="slds-col slds-size_1-of-3">
+        <div class="slds-form-element slds-m-top_large">
+          <select name="cars" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="slds-grid">
+      <div class="slds-col slds-size_2-of-3">
+        <div class="slds-form-element">
+          <label class="slds-form-element__label" for="form-element-02">Converted Amount:</label>
+          <div class="slds-form-element__control">
+            <input type="text" id="form-element-02" placeholder="0.00" class="slds-input" />
+          </div>
+        </div>
+      </div>
+      <div class="slds-col slds-size_1-of-3">
+        <div class="slds-form-element slds-m-top_large">
+          <select name="cars" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slds-col slds-size_1-of-3">
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
 <router-outlet></router-outlet>
