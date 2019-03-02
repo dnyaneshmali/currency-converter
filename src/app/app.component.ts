@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppModel} from './app.model';
 import {AppServices} from './app.services';
 @Component({
@@ -7,18 +7,22 @@ import {AppServices} from './app.services';
   styleUrls: ['./app.component.scss'],
   providers: [AppServices]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public currModel = new AppModel();
   public resObj: any;
+  public currencyList: any;
   constructor(public appservice: AppServices) {
   }
-  fromCurrChange() {
+  ngOnInit() {
+    this.currencyList = ['CAD', 'USD', 'EUR'];
+  }
+  baseCurrChange() {
     console.log('ready');
-    console.log(this.currModel.fromCurr);
+    console.log(this.currModel);
     this.appservice.getCurrData().subscribe(respData => {
       if (respData) {
         this.resObj = respData;
-        this.currModel.toCurr = this.currModel.fromCurr * this.resObj.rates['CAD'];
+        this.currModel.targetCurr = this.currModel.baseCurr * this.resObj.rates[this.currModel.targetCurrName];
         console.log(this.resObj);
       } else {
         console.log('Currency Not Found');

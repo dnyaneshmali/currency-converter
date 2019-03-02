@@ -5,16 +5,14 @@
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="form-element-01">Type in amount and select currency:</label>
           <div class="slds-form-element__control">
-            <input type="number" id="form-element-01" (keyup)="fromCurrChange()" [(ngModel)]="currModel.fromCurr" placeholder="0.00" class="slds-input" />
+            <input type="number" id="form-element-01" (keyup)="baseCurrChange()" [(ngModel)]="currModel.baseCurr" placeholder="0.00" class="slds-input" />
           </div>
         </div>
       </div>
       <div class="slds-col slds-size_1-of-3">
         <div class="slds-form-element slds-m-top_large">
-          <select name="fromCurrlist" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
-            <option selected value="volvo">CAD</option>
-            <option value="saab">USD</option>
-            <option value="fiat">EUR</option>
+          <select [(ngModel)]='currModel.baseCurrName' name="baseCurrName" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+            <option *ngFor="let curr of currencyList" [ngValue]='curr'>{{curr}}</option>
           </select>
         </div>
       </div>
@@ -24,16 +22,14 @@
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="form-element-02">Converted Amount:</label>
           <div class="slds-form-element__control">
-            <input type="number" id="form-element-02" disabled [(ngModel)]="currModel.toCurr" placeholder="0.00" class="slds-input" />
+            <input type="number" id="form-element-02" disabled [(ngModel)]="currModel.targetCurr" placeholder="0.00" class="slds-input" />
           </div>
         </div>
       </div>
       <div class="slds-col slds-size_1-of-3">
         <div class="slds-form-element slds-m-top_large">
-          <select name="toCurrlist" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
-            <option value="volvo">CAD</option>
-            <option selected value="saab">USD</option>
-            <option value="fiat">EUR</option>
+          <select  [(ngModel)]='currModel.targetCurrName' name="targetCurrName" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+            <option *ngFor="let curr of currencyList" [ngValue]='curr'>{{curr}}</option>
           </select>
         </div>
       </div>

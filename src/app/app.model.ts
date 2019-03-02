@@ -1,8 +1,8 @@
 export class AppModel {
-  fromCurr: number;
-  toCurr: number;
-  fromCurrName: string;
-  toCurrName: string;
+  baseCurr: number;
+  targetCurr: number;
+  baseCurrName: string;
+  targetCurrName: string;
   constructor() {
 }
 }
