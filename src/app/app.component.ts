@@ -13,12 +13,14 @@ export class AppComponent implements OnInit {
   public resObj: any;
   public currencyList: any;
   public convertFactor: any;
+  public showDisclaimer: boolean;
 
   constructor(public appservice: AppServices) {
   }
 
   ngOnInit() {
     this.currencyList = ['CAD', 'USD', 'EUR'];
+    this.showDisclaimer = false;
   }
 
   baseCurrChange() {
@@ -36,5 +38,11 @@ export class AppComponent implements OnInit {
     }, () => {
       console.log('In Complete Block');
     });
+  }
+  showDisclaimers() {
+    this.showDisclaimer = true;
+  }
+  closeDisclaimers() {
+    this.showDisclaimer = false;
   }
 }
