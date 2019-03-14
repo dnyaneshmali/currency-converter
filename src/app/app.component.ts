@@ -9,40 +9,41 @@ import {AppServices} from './app.services';
   providers: [AppServices]
 })
 export class AppComponent implements OnInit {
-  public currModel = new AppModel();
-  public resObj: any;
+  public currencyModel = new AppModel();
+  public responseObj: any;
   public currencyList: any;
-  public convertFactor: any;
-  public showDisclaimer: boolean;
+  public coversionCurrencies: any;
+  public coversionResult: number;
+  public showDisclaimerModal: boolean;
 
   constructor(public appservice: AppServices) {
   }
 
   ngOnInit() {
     this.currencyList = ['CAD', 'USD', 'EUR'];
-    this.showDisclaimer = false;
+    this.showDisclaimerModal = false;
   }
 
   baseCurrChange() {
-    this.convertFactor = this.currModel.baseCurrName + '_' + this.currModel.targetCurrName;
-    this.appservice.getCurrData(this.convertFactor).subscribe(respData => {
+    this.coversionCurrencies = this.currencyModel.baseCurrName + '_' + this.currencyModel.targetCurrName;
+    this.appservice.getCurrData(this.coversionCurrencies).subscribe(respData => {
       if (respData) {
-        this.resObj = respData;
-        this.currModel.targetCurr = respData[this.convertFactor] * this.currModel.baseCurr;
-        // this.currModel.targetCurr = this.currModel.baseCurr * this.resObj.rates[this.currModel.targetCurrName];
+        this.responseObj = respData;
+        this.coversionResult = respData[this.coversionCurrencies] * this.currencyModel.baseCurr;
+        this.currencyModel.targetCurr = parseFloat((this.coversionResult).toFixed(2));
       } else {
         console.log('Currency Not Found');
       }
     }, err => {
-      console.log('In Error Block');
+      console.log('Something went Wrong!!');
     }, () => {
-      console.log('In Complete Block');
+      console.log('Currency Found Successfully!!');
     });
   }
   showDisclaimers() {
-    this.showDisclaimer = true;
+    this.showDisclaimerModal = true;
   }
   closeDisclaimers() {
-    this.showDisclaimer = false;
+    this.showDisclaimerModal = false;
   }
 }
