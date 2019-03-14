@@ -1,6 +1,6 @@
 # currency-converter
 
-Installation Steps
+**Installation Steps**
 
 Clone github repository using link 
 
@@ -11,7 +11,7 @@ fire npm install command (all dependent node modules will install).
 fire npm start command (project will run successfully).
 
 
-# To build project use bellow command
+**To build project use bellow command**
 
 ng-build
 
