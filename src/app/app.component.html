@@ -5,7 +5,7 @@
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="form-element-01">Type in amount and select currency:</label>
           <div class="slds-form-element__control">
-            <input type="number" id="form-element-01" (keyup)="baseCurrChange()" [(ngModel)]="currencyModel.baseCurr"
+            <input type="number" id="form-element-01" (keypress)="numberOnly($event)" [(ngModel)]="currencyModel.baseCurr"
                    placeholder="0.00" class="slds-input"/>
           </div>
         </div>

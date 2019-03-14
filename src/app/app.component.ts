@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
   public currencyModel = new AppModel();
   public responseObj: any;
   public currencyList: any;
-  public coversionCurrencies: any;
-  public coversionResult: number;
+  public conversionCurrencies: any;
+  public conversionResult: number;
   public showDisclaimerModal: boolean;
 
   constructor(public appservice: AppServices) {
@@ -23,14 +23,21 @@ export class AppComponent implements OnInit {
     this.currencyList = ['CAD', 'USD', 'EUR'];
     this.showDisclaimerModal = false;
   }
-
+  numberOnly(event) {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode === 43 || charCode === 45) {
+      return false;
+    } else {
+      this.baseCurrChange();
+    }
+  }
   baseCurrChange() {
-    this.coversionCurrencies = this.currencyModel.baseCurrName + '_' + this.currencyModel.targetCurrName;
-    this.appservice.getCurrData(this.coversionCurrencies).subscribe(respData => {
+    this.conversionCurrencies = this.currencyModel.baseCurrName + '_' + this.currencyModel.targetCurrName;
+    this.appservice.getCurrData(this.conversionCurrencies).subscribe(respData => {
       if (respData) {
         this.responseObj = respData;
-        this.coversionResult = respData[this.coversionCurrencies] * this.currencyModel.baseCurr;
-        this.currencyModel.targetCurr = parseFloat((this.coversionResult).toFixed(2));
+        this.conversionResult = respData[this.conversionCurrencies] * this.currencyModel.baseCurr;
+        this.currencyModel.targetCurr = parseFloat((this.conversionResult).toFixed(2));
       } else {
         console.log('Currency Not Found');
       }
