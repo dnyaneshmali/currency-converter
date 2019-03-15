@@ -15,6 +15,9 @@ export class ConverterComponent implements OnInit {
   public conversionCurrencies: any;
   public conversionResult: number;
   public showDisclaimerModal: boolean;
+  popoverPlacement: string;
+  openPopover: boolean;
+  public opened: boolean;
 
   constructor(public appservice: AppServices) {
   }
@@ -22,6 +25,7 @@ export class ConverterComponent implements OnInit {
   ngOnInit() {
     this.currencyList = ['CAD', 'USD', 'EUR'];
     this.showDisclaimerModal = false;
+    this.opened = false;
   }
   numberOnly(event) {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -47,10 +51,10 @@ export class ConverterComponent implements OnInit {
       console.log('Currency Found Successfully!!');
     });
   }
-  showDisclaimers() {
-    this.showDisclaimerModal = true;
+  openDisclaimer() {
+    this.opened = true;
   }
-  closeDisclaimers() {
-    this.showDisclaimerModal = false;
+  closeDisclaimer() {
+this.opened = false;
   }
 }
