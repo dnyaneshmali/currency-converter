@@ -1,7 +1,7 @@
-<div class="slds-grid slds-gutters">
-  <div class="slds-col slds-size_2-of-3">
-    <div class="slds-grid">
-      <div class="slds-col slds-size_2-of-3">
+<div class="slds-grid slds-gutters slds-wrap slds-p-horizontal_medium">
+  <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12 slds-box slds-m-top_x-large">
+    <div class="slds-grid slds-wrap">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12">
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="form-element-01">Type in amount and select currency:</label>
           <div class="slds-form-element__control">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-      <div class="slds-col slds-size_1-of-3">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
         <div class="slds-form-element slds-m-top_large">
           <select [(ngModel)]='currencyModel.baseCurrName' name="baseCurrName" (change)="baseCurrChange()"
                   class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
@@ -19,8 +19,8 @@
         </div>
       </div>
     </div>
-    <div class="slds-grid">
-      <div class="slds-col slds-size_2-of-3">
+    <div class="slds-grid slds-wrap slds-m-top_x-large">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12">
         <div class="slds-form-element">
           <label class="slds-form-element__label" for="form-element-02">Converted Amount:</label>
           <div class="slds-form-element__control">
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div class="slds-col slds-size_1-of-3">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
         <div class="slds-form-element slds-m-top_large">
           <select [(ngModel)]='currencyModel.targetCurrName' name="targetCurrName" (change)="baseCurrChange()"
                   class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
@@ -39,12 +39,12 @@
       </div>
     </div>
     <div class="slds-grid">
-      <div class="slds-col slds-m-top_large" style="text-align: right">
+      <div class="slds-col slds-m-top_x-large" style="text-align: right">
         <span (click)="showDisclaimers()" style="cursor: pointer">Disclaimer</span>
       </div>
     </div>
   </div>
-  <div class="slds-col slds-size_1-of-3">
+  <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
   </div>
 </div>
 
