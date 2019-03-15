@@ -13,6 +13,9 @@
 
 **To build project use bellow command**
 
-- ng-build
+- ng build --prod --base-href
+- It will generate dist folder.
+- Go to dist directoy and run index.html file.
+- It will open build project in browser.
 
 **Note:** ```for fixer.io free api key there are restriction "base_currency_access_restricted" so I used https://free.currencyconverterapi.com api ```
